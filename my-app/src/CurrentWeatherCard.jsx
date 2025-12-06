@@ -1,3 +1,5 @@
+import DetailItem from './DetailItem.jsx';
+import { Search, MapPin, Sunset, Sunrise, Droplet, Wind, Loader, Zap } from 'lucide-react';
 const CurrentWeatherCard = ({ data, unit, onGenerateSuggestion, aiLoading, suggestion }) => {
     const {
         location,
@@ -62,7 +64,7 @@ const CurrentWeatherCard = ({ data, unit, onGenerateSuggestion, aiLoading, sugge
                 <button 
                     onClick={onGenerateSuggestion}
                     disabled={aiLoading}
-                    className="w-full p-3 bg-fuchsia-600 hover:bg-fuchsia-700 disabled:bg-fuchsia-400 text-white font-bold rounded-xl shadow-xl transition duration-200 flex items-center justify-center text-lg"
+                    className="w-full p-3 bg-fuchsia-600 hover:bg-fuchsia-700 disabled:bg-fuchsia-400 text-white font-bold rounded-xl shadow-xl transition duration-200 flex items-center justify-center text-lg cursor-pointer"
                 >
                     {aiLoading ? (
                         <><Loader className="w-5 h-5 animate-spin mr-2"/> Generating Tip...</>
