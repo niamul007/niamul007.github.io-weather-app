@@ -3,9 +3,9 @@ import { Search, MapPin, Sunset, Sunrise, Droplet, Wind, Loader, Zap } from 'luc
 
 // --- GLOBAL CONSTANTS ---
 // NOTE: OpenWeatherMap API Key is hardcoded here for simplicity in this sandbox.
-const API_KEY = "653f8950547083fe96d14f04426fe038";
+const API_KEY = '653f8950547083fe96d14f04426fe038'
 // GEMINI_API_KEY is expected to be provided by the runtime environment.
-const GEMINI_API_KEY = ""; 
+const GEMINI_API_KEY = 'AIzaSyCf1mrlQCmCDOq9PD10HEcJlc9ybhUn9kY'
 const LLM_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
 
 
@@ -14,7 +14,7 @@ const LLM_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gem
 // ===================================
 
 // Function to handle fetching with exponential backoff for robust API calls
-const exponentialBackoffFetch = async (url, options, maxRetries = 5) => {
+export const  exponentialBackoffFetch = async (url, options, maxRetries = 5) => {
     for (let i = 0; i < maxRetries; i++) {
         try {
             const response = await fetch(url, options);
@@ -39,7 +39,7 @@ const exponentialBackoffFetch = async (url, options, maxRetries = 5) => {
 };
 
 // Converts temperature from Kelvin (OpenWeatherMap's default) to Celsius or Fahrenheit.
-const convertTemperature = (kelvin, targetUnit) => {
+export const convertTemperature = (kelvin, targetUnit) => {
     if (typeof kelvin !== "number") return null;
     let result;
 
@@ -54,7 +54,7 @@ const convertTemperature = (kelvin, targetUnit) => {
 };
 
 // Aggregates the 3-hour forecast list into 5-day daily high/low data.
-const filterForecastData = (list, unit) => {
+export const filterForecastData = (list, unit) => {
     const dailyData = {};
     const today = new Date().toDateString();
 
@@ -114,3 +114,4 @@ const filterForecastData = (list, unit) => {
 
     return finalForecast;
 };
+
