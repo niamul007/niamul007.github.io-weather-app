@@ -7,7 +7,7 @@ import { exponentialBackoffFetch } from './App.jsx';
 import { convertTemperature, filterForecastData } from './App.jsx';
 // API Keys and Endpoints
 const API_KEY = '653f8950547083fe96d14f04426fe038';
-const GEMINI_API_KEY = 'AIzaSyCf1mrlQCmCDOq9PD10HEcJlc9ybhUn9kY';
+const GEMINI_API_KEY = 'AIzaSyCIfr5FssNQMUDIdty0sYJzeznMmOusvMA';
 const LLM_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
 
 export default function WeatherApp() {
@@ -33,6 +33,7 @@ export default function WeatherApp() {
         setSuggestion(null); // Clear previous AI suggestion
 
         try {
+            
             let currentUrl, cityLat, cityLon;
             // 1. Determine the initial API call URL
             if (lat && lon) {
