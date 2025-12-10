@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Search, MapPin, Sunset, Sunrise, Droplet, Wind, Loader, Zap } from 'lucide-react';
+const openWeatherApiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY; 
+
 
 // --- GLOBAL CONSTANTS ---
 // NOTE: OpenWeatherMap API Key is hardcoded here for simplicity in this sandbox.
-const API_KEY = ''
+const API_KEY = openWeatherApiKey;
 // GEMINI_API_KEY is expected to be provided by the runtime environment.
-const GEMINI_API_KEY = ''
+const GEMINI_API_KEY = geminiApiKey;
 const LLM_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
 
 
