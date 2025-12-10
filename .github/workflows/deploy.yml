@@ -6,14 +6,11 @@ on:
       - main
 
 permissions:
-  contents: write   # Allow GitHub Actions to push to gh-pages
+  contents: write   # allow pushing to gh-pages
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: my-app   # <- All npm commands run inside 'my-app'
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -24,16 +21,20 @@ jobs:
           node-version: 20
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          cd my-app
+          npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          cd my-app
+          npm run build
 
       - name: Add .nojekyll
-        run: touch dist/.nojekyll   # Prevent Jekyll from ignoring files
+        run: touch my-app/.dist/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist        # <- Path relative to working-directory 'my-app'
+          publish_dir: my-app/.dist   # <-- points to your actual build folder
