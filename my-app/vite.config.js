@@ -11,7 +11,7 @@ const repoName = '/weather-app/';
 export default defineConfig({
   // --- CRITICAL CONFIGURATION FOR GITHUB PAGES ---
   // This tells Vite where the production assets will be served from (the sub-directory on GitHub Pages).
-  base: weather-app, 
+  base: repoName, 
   // --------------------------------------------------
 
   plugins: [
