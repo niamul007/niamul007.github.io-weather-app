@@ -15,9 +15,12 @@ import DynamicBackgroundController from "./DynamicBackgroundController";
 import ForecastList from "./ForecastList";
 import { exponentialBackoffFetch } from "./App.jsx";
 import { convertTemperature, filterForecastData } from "./App.jsx";
+
+const openWeatherApiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY; 
 // API Keys and Endpoints
-const API_KEY =''
-const GEMINI_API_KEY = ''
+const API_KEY = openWeatherApiKey;
+const GEMINI_API_KEY = geminiApiKey;
 const LLM_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${GEMINI_API_KEY}`;
 
 export default function WeatherApp() {
