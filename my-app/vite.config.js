@@ -3,11 +3,6 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // For username.github.io → base must be "/"
-  base: '/',
-
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  base: '/niamul007.github.io-weather-app/', // <- MUST match your repo name
+  plugins: [react(), tailwindcss()],
 })
